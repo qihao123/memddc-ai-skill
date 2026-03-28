@@ -126,17 +126,17 @@
 
 ```bash
 # 触发初始化流程
-MemDDC-Pro
+MemDDC
 ```
 
 ### 执行代码修改
 
 ```bash
 # 加载记忆约束并执行修改
-MemDDC-Pro 加载记忆约束修改
+MemDDC 加载记忆约束修改
 
 # 按照DDD契约进行迭代更新
-MemDDC-Pro 按DDC契约迭代更新
+MemDDC 按DDC契约迭代更新
 ```
 
 ## 注意事项
