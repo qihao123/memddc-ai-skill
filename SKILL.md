@@ -182,7 +182,7 @@ MIT License
 
 ## 联系方式
 
-- 项目主页: <https://github.com/memddc/memddc-ai-skill>
-- 问题反馈: <https://github.com/memddc/memddc-ai-skill/issues>
-- 邮件支持: <support@memddc.com>
+- 项目主页: <https://github.com/qihao123/memddc-ai-skill>
+- 作者: qihao123
+- 邮件支持: <qihoo2017@gmail.com>
 
