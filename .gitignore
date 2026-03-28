@@ -1,2 +1,9 @@
 # Ignore TRAE configuration directory
-.trae/docs/architecture.md
+.trae/
+
+# Ignore generated files
+ddd-model.md
+mem-snapshot.json
+
+# Ignore docs directory
+docs/
