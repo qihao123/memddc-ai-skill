@@ -7,9 +7,7 @@
 - **作者**: qihao123
 - **描述**: 项目文档管理与代码迭代智能工具，提供自动文档生成、DDD模型管理、记忆压缩和代码风格统一功能
 - **触发关键词**: MemDDC, 加载记忆约束修改, 按DDC契约迭代更新
-- **触发关键词 (英文)**: MemDDC, Load memory constraints for modification, Iterate and update according to DDD contract
 - **适用场景**: 复杂架构迭代、遗留系统持续重构、长期多人维护工程AI约束治理
-- **Applicable Scenarios (EN)**: Complex architecture iteration, Legacy system refactoring, Long-term multi-person maintenance with AI governance
 
 ## 核心功能
 
