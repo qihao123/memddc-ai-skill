@@ -1,0 +1,212 @@
+/**
+ * 俄罗斯方块游戏样式
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.game-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.game-board {
+  position: relative;
+}
+
+canvas {
+  display: block;
+  border: 3px solid #444;
+  border-radius: 5px;
+  background: #111;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 150px;
+}
+
+.info-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.info-box h3 {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-box .value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+}
+
+.next-piece-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 120px;
+}
+
+.next-piece-box h3 {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.next-piece-preview {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls-info {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.controls-info h3 {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.controls-info ul {
+  list-style: none;
+  font-size: 12px;
+  color: #ccc;
+}
+
+.controls-info li {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.controls-info .key {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+  color: #fff;
+}
+
+.game-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.game-title h1 {
+  font-size: 36px;
+  background: linear-gradient(45deg, #00f0f0, #f0f000, #f00000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(0, 240, 240, 0.3);
+  letter-spacing: 3px;
+}
+
+.start-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.start-screen h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #00f0f0;
+}
+
+.start-screen p {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.btn {
+  padding: 12px 30px;
+  font-size: 18px;
+  background: linear-gradient(45deg, #00f0f0, #0080ff);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 240, 240, 0.5);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+  .game-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .side-panel {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .info-box, .next-piece-box, .controls-info {
+    flex: 1;
+    min-width: 100px;
+  }
+}

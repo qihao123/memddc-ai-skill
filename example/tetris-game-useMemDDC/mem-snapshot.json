@@ -1,0 +1,103 @@
+{
+  "project": {
+    "name": "tetris-game",
+    "type": "web-game",
+    "language": "javascript",
+    "description": "基于HTML5 Canvas的俄罗斯方块网页游戏"
+  },
+  "structure": {
+    "root": "/Users/qh/Desktop/test/tetris-game",
+    "files": [
+      "index.html",
+      "js/tetromino.js",
+      "js/board.js",
+      "js/collision.js",
+      "js/renderer.js",
+      "js/input.js",
+      "js/game.js",
+      "css/styles.css"
+    ],
+    "docs": [
+      "docs/architecture.md",
+      "docs/api.md"
+    ]
+  },
+  "domain": {
+    "aggregates": [
+      {
+        "name": "GameBoard",
+        "root": "GameBoard",
+        "entities": ["Cell"],
+        "valueObjects": ["Position", "Color"]
+      },
+      {
+        "name": "Tetromino",
+        "root": "Tetromino",
+        "entities": ["Block"],
+        "valueObjects": ["Shape", "Rotation"]
+      },
+      {
+        "name": "GameState",
+        "root": "GameState",
+        "valueObjects": ["Score", "Level", "Speed"]
+      }
+    ],
+    "services": [
+      "CollisionDetectionService",
+      "LineClearService",
+      "ScoreCalculationService"
+    ],
+    "events": [
+      "TetrominoPlaced",
+      "LineCleared",
+      "GameOver",
+      "ScoreUpdated",
+      "LevelUp"
+    ]
+  },
+  "architecture": {
+    "layers": {
+      "presentation": ["index.html", "styles.css"],
+      "application": ["game.js"],
+      "domain": ["tetromino.js", "board.js", "collision.js"],
+      "infrastructure": ["renderer.js", "input.js"]
+    }
+  },
+  "config": {
+    "boardWidth": 10,
+    "boardHeight": 20,
+    "cellSize": 30,
+    "initialSpeed": 1000,
+    "speedIncrement": 50,
+    "linesPerLevel": 10
+  },
+  "tetrominoTypes": ["I", "O", "T", "S", "Z", "J", "L"],
+  "colors": {
+    "I": "#00f0f0",
+    "O": "#f0f000",
+    "T": "#a000f0",
+    "S": "#00f000",
+    "Z": "#f00000",
+    "J": "#0000f0",
+    "L": "#f0a000"
+  },
+  "controls": {
+    "ArrowLeft": "moveLeft",
+    "ArrowRight": "moveRight",
+    "ArrowDown": "moveDown",
+    "ArrowUp": "rotate",
+    "Space": "hardDrop",
+    "KeyP": "pause",
+    "KeyR": "reset"
+  },
+  "codeStyle": {
+    "indentation": "2 spaces",
+    "quotes": "single",
+    "semicolons": true,
+    "naming": {
+      "classes": "PascalCase",
+      "methods": "camelCase",
+      "constants": "UPPER_SNAKE_CASE"
+    }
+  }
+}

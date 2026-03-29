@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄罗斯方块</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-info">
+            <h1>俄罗斯方块</h1>
+            <div class="score-board">
+                <div class="score-item">
+                    <span class="label">分数</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">等级</span>
+                    <span id="level">1</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">行数</span>
+                    <span id="lines">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <canvas id="game-board" width="300" height="600"></canvas>
+            <div class="side-panel">
+                <div class="next-piece-container">
+                    <h3>下一个</h3>
+                    <canvas id="next-piece" width="120" height="120"></canvas>
+                </div>
+                <div class="controls-info">
+                    <h3>操作说明</h3>
+                    <p>← → : 左右移动</p>
+                    <p>↓ : 加速下落</p>
+                    <p>↑ : 旋转</p>
+                    <p>空格 : 直接落下</p>
+                    <p>P : 暂停</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-buttons">
+            <button id="start-btn">开始游戏</button>
+            <button id="pause-btn" disabled>暂停</button>
+            <button id="restart-btn">重新开始</button>
+        </div>
+        
+        <div id="game-over-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>游戏结束</h2>
+                <p>最终得分: <span id="final-score">0</span></p>
+                <button id="modal-restart-btn">重新开始</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="tetris.js"></script>
+</body>
+</html>

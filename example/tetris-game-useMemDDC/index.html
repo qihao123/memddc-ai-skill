@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>俄罗斯方块 - Tetris</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="game-title">
+      <h1>俄罗斯方块</h1>
+    </div>
+    
+    <div class="game-container">
+      <div class="game-board">
+        <canvas id="gameCanvas"></canvas>
+        <div id="startScreen" class="start-screen">
+          <h2>准备好了吗？</h2>
+          <p>使用方向键控制方块</p>
+          <button id="startBtn" class="btn">开始游戏</button>
+        </div>
+      </div>
+      
+      <div class="side-panel">
+        <div class="info-box">
+          <h3>分数</h3>
+          <div id="scoreValue" class="value">0</div>
+        </div>
+        
+        <div class="info-box">
+          <h3>等级</h3>
+          <div id="levelValue" class="value">1</div>
+        </div>
+        
+        <div class="info-box">
+          <h3>行数</h3>
+          <div id="linesValue" class="value">0</div>
+        </div>
+        
+        <div class="next-piece-box">
+          <h3>下一个</h3>
+          <canvas id="nextPieceCanvas" width="100" height="100"></canvas>
+        </div>
+        
+        <div class="controls-info">
+          <h3>操作说明</h3>
+          <ul>
+            <li><span>左移</span><span class="key">←</span></li>
+            <li><span>右移</span><span class="key">→</span></li>
+            <li><span>加速</span><span class="key">↓</span></li>
+            <li><span>旋转</span><span class="key">↑</span></li>
+            <li><span>直接落</span><span class="key">空格</span></li>
+            <li><span>暂停</span><span class="key">P</span></li>
+            <li><span>重开</span><span class="key">R</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { Game } from './js/game.js';
+
+    // 获取DOM元素
+    const canvas = document.getElementById('gameCanvas');
+    const startScreen = document.getElementById('startScreen');
+    const startBtn = document.getElementById('startBtn');
+    const scoreValue = document.getElementById('scoreValue');
+    const levelValue = document.getElementById('levelValue');
+    const linesValue = document.getElementById('linesValue');
+
+    // 创建游戏实例
+    const game = new Game(canvas);
+
+    // 更新UI显示
+    function updateUI() {
+      scoreValue.textContent = game.score;
+      levelValue.textContent = game.level;
+      linesValue.textContent = game.lines;
+    }
+
+    // 监听游戏状态变化
+    const originalRender = game.render.bind(game);
+    game.render = function() {
+      originalRender();
+      updateUI();
+    };
+
+    // 开始按钮事件
+    startBtn.addEventListener('click', () => {
+      startScreen.classList.add('hidden');
+      game.start();
+    });
+
+    // 页面加载完成后自动显示开始界面
+    window.addEventListener('load', () => {
+      game.render();
+    });
+
+    // 防止空格键滚动页面
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'Space' && e.target === document.body) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
