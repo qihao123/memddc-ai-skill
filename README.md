@@ -130,7 +130,12 @@ MemDDC 的优势：
         "scanDepth": 5,
         "compressionLevel": 7,
         "autoUpdateDocs": true,
-        "autoEnforceCodeStyle": true
+        "autoEnforceCodeStyle": true,
+        "autoLoadSnapshot": true,
+        "loadDocumentTypes": ["architecture", "api", "ddd-model", "class-docs"],
+        "cacheSize": 1024,
+        "cacheExpiry": 3600,
+        "loadStrategy": "snapshot-first"
       }
     }
   ]
@@ -153,6 +158,7 @@ MemDDC 的优势：
 - **DDD领域建模**：建立清晰的领域边界和业务契约
 - **长记忆管理**：压缩存储项目历史决策和约束规则
 - **代码风格统一**：自动化代码风格检查和修复
+- **自动加载**：每次技能被触发时自动加载记忆快照和文档信息，无需用户明确要求
 - **上下文注入**：确保大模型严格遵循历史架构决策
 - **闭环更新**：自动同步更新文档和模型，保持一致性
 
