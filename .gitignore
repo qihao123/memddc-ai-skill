@@ -7,3 +7,51 @@ mem-snapshot.json
 
 # Ignore docs directory
 docs/
+
+# Ignore test files
+test-*.js
+
+# Ignore test projects
+test-project/
+test-projects/
+
+# Ignore node_modules
+node_modules/
+
+# Ignore build files
+build/
+dist/
+target/
+
+# Ignore IDE files
+.idea/
+.vscode/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore backup files
+*.bak
+*.backup
+
+# Ignore lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore other non-essential files
+*.swp
+*.swo
+*.env
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
