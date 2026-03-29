@@ -1,5 +1,7 @@
 # memddc-ai-skill
 
+> [English Version](README_EN.md)
+
 ## 项目信息
 
 - **项目主页**: https://github.com/qihao123/memddc-ai-skill
