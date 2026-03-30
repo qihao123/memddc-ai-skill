@@ -1,0 +1,14 @@
+{
+  "project_root": "/Users/qh/Desktop/memddc-skill/memddc-ai-skill/.memddc",
+  "language": "python",
+  "stats": {
+    "total_modules": 0,
+    "total_classes": 0,
+    "total_functions": 0,
+    "total_api_endpoints": 0,
+    "scan_errors": 0
+  },
+  "modules": {},
+  "api_endpoints": [],
+  "errors": []
+}
