@@ -7,8 +7,43 @@
 - **Project Homepage**: https://github.com/qihao123/memddc-ai-skill
 - **Author**: qihao123
 - **Contact**: qihoo2017@gmail.com
-- **Version**: 1.0.0
-- **Description**: Intelligent tool for project documentation management and code iteration, providing automatic document generation, DDD model management, memory compression, and code style unification
+- **Version**: 1.0.1
+- **Description**: Team-oriented project documentation management and code iteration intelligent tool, providing automatic document generation, DDD model management, memory compression, code style unification, and intelligent triggering
+
+## v1.0.1 Core Upgrades
+
+### 1. Team Collaboration Support
+
+- **Unified Storage Location**: All documents and configurations are stored in `.memddc/` directory for easy team member synchronization and sharing
+- **Centralized Configuration Management**: Team-shared configuration files ensure all members use consistent document generation strategies
+- **Conflict Resolution Mechanism**: Intelligently detect conflicts when multiple people modify simultaneously, provide merge suggestions
+- **Permission Control**: Support setting different document modification permissions for different members
+
+### 2. Intelligent Triggering Mechanism
+
+Trigger conditions (any condition triggers):
+- **Code Change Trigger**: Detects new, modified, or deleted code files (.js/.ts/.py/.java/.go/.cpp/.rs)
+- **File Structure Change**: Detects project directory structure changes (new/delete folders)
+- **Config File Change**: Detects config file changes (.json/.yaml/.yml/.toml/.xml)
+- **Explicit Invocation**: User actively inputs trigger keywords
+- **Scheduled Sync**: Configurable scheduled checks and document synchronization
+
+### 3. Multi-Strategy Document Generation
+
+Automatically select optimal strategy based on project characteristics:
+- **By Project Type**: Backend/Frontend/Mobile/Microservice/Monolithic
+- **By Programming Language**: Java/Python/Go/Node.js/React/Vue, etc.
+- **By Architecture Pattern**: MVC/MVVM/DDD/Microservice/Serverless
+
+### 4. Active Request Capability
+
+Skill can actively request necessary information:
+- Database table structure samples
+- API interface document samples
+- Existing code samples
+- Business requirement documents
+- Architecture design documents
+Can interrupt the request process at any time, user can choose to provide or skip
 
 ## Core Philosophy
 
@@ -61,6 +96,9 @@ Trigger MemDDC Skill through the following keywords:
 - `MemDDC`
 - `Load memory constraints for modification`
 - `Iterate and update according to DDD contract`
+- `memddc-init`
+- `memddc-update`
+- `memddc-sync`
 
 ### Automatic Invocation Settings
 
@@ -81,8 +119,8 @@ Trigger MemDDC Skill through the following keywords:
            "onProjectOpen"
          ],
          "conditions": {
-           "fileExtensions": [".js", ".ts", ".jsx", ".tsx", ".java", ".py"],
-           "projectTypes": ["node", "react", "angular", "vue", "java", "python"]
+           "fileExtensions": [".js", ".ts", ".jsx", ".tsx", ".java", ".py", ".go", ".rs", ".cpp"],
+           "projectTypes": ["node", "react", "angular", "vue", "java", "python", "go", "rust"]
          }
        }
      ]
@@ -92,7 +130,7 @@ Trigger MemDDC Skill through the following keywords:
 2. **JetBrains IDE Configuration**:
    - Install TRAE plugin
    - Enable automatic trigger in plugin settings:
-     - Trigger timing: file save, code edit, project open
+     - Trigger timing: file save, code edit, project open, code change detection
      - Applicable file types: all source code files
 
 3. **Sublime Text Configuration**:
@@ -105,7 +143,7 @@ Trigger MemDDC Skill through the following keywords:
      "skills": [
        {
          "name": "MemDDC",
-         "triggers": ["on_save", "on_modify", "on_load"]
+         "triggers": ["on_save", "on_modify", "on_load", "on_code_change"]
        }
      ]
    }
@@ -126,7 +164,8 @@ Create `.trae/config.json` file in the project root directory:
         "onFileDelete",
         "onFileRename",
         "onBranchChange",
-        "onMerge"
+        "onMerge",
+        "onCodeChange"
       ],
       "options": {
         "scanDepth": 5,
@@ -137,7 +176,8 @@ Create `.trae/config.json` file in the project root directory:
         "loadDocumentTypes": ["architecture", "api", "ddd-model", "class-docs"],
         "cacheSize": 1024,
         "cacheExpiry": 3600,
-        "loadStrategy": "snapshot-first"
+        "loadStrategy": "snapshot-first",
+        "teamShared": true
       }
     }
   ]
@@ -146,12 +186,35 @@ Create `.trae/config.json` file in the project root directory:
 
 ## Directory Structure
 
+### v1.0.1 New Directory Structure
+
 ```
-/
-├── docs/              # Full engineering original documents & AI lightweight compressed documents
-│   └── code-style.md  # Code style guide document
-├── ddd-model.md       # Complete DDD domain model definition for the project
-└── mem-snapshot.json  # Global compressed long-term memory snapshot file
+project/
+├── .memddc/                          # MemDDC Unified Storage Directory (Team Shared)
+│   ├── config.json                   # Team-shared configuration
+│   ├── mem-snapshot.json             # Global memory snapshot
+│   ├── docs/                        # Project documents
+│   │   ├── architecture.md          # Architecture document
+│   │   ├── business.md             # Business document
+│   │   ├── api.md                  # API interface document
+│   │   ├── database.md             # Database design document
+│   │   ├── development.md          # Development guide
+│   │   ├── code-style.md           # Code style guide
+│   │   ├── [language-specific].md  # Language-specific documents
+│   │   ├── [architecture-specific].md # Architecture-specific documents
+│   │   └── diagrams/               # Diagram documents (Mermaid)
+│   │       ├── architecture.mmd
+│   │       ├── flow.mmd
+│   │       ├── sequence.mmd
+│   │       └── er.mmd
+│   ├── ddd-model.md                 # DDD domain model
+│   ├── snapshots/                   # Historical snapshot archive
+│   │   ├── docs-compressed.zip     # Document compression package
+│   │   └── mem-YYYYMMDD-HHMMSS.json # Timestamped snapshot
+│   ├── logs/                        # Operation logs
+│   │   └── sync-YYYYMMDD.log
+│   └── .gitignore                  # Team-shared git ignore rules
+└── [Project Source Code Directory]
 ```
 
 ## Technical Features
@@ -160,12 +223,17 @@ Create `.trae/config.json` file in the project root directory:
 - **DDD Domain Modeling**: Establishes clear domain boundaries and business contracts
 - **Long-term Memory Management**: Compresses and stores project historical decisions and constraint rules
 - **Unified Code Style**: Automated code style checking and fixing
-- **Automatic Loading**: Automatically loads memory snapshots and document information each time the skill is triggered, without requiring explicit user request
+- **Automatic Loading**: Automatically loads memory snapshots and document information each time the skill is triggered
 - **Context Injection**: Ensures large models strictly follow historical architectural decisions
 - **Closed-loop Updates**: Automatically synchronizes and updates documents and models to maintain consistency
+- **Team Collaboration**: Unified `.memddc/` directory supports team sharing
+- **Intelligent Triggering**: Auto-trigger document sync on code changes
+- **Multi-Strategy Generation**: Auto-select document generation strategy based on language/architecture/type
+- **Active Request**: Can actively request database samples and other necessary information
 
 ## Applicable Scenarios
 
+- **Team Collaboration Development**: Unified storage and sharing of project documents and memory
 - **Complex Architecture Iteration**: Ensures continuity and consistency of architectural decisions
 - **Legacy System Refactoring**: Quickly understands existing systems and performs orderly refactoring
 - **Long-term Multi-person Maintenance**: Maintains consistency in code style and architectural design
@@ -174,6 +242,7 @@ Create `.trae/config.json` file in the project root directory:
 ## Performance Optimization
 
 - **Incremental Scanning**: Only processes changed files, reducing scanning time
+- **Intelligent Triggering**: Only triggers on code changes, reducing unnecessary scanning
 - **Parallel Processing**: Processes multiple document generation tasks simultaneously
 - **Intelligent Caching**: Caches intermediate results to improve efficiency of repeated operations
 - **Compression Algorithms**: Uses efficient compression algorithms to reduce storage and transmission costs
@@ -184,25 +253,30 @@ Create `.trae/config.json` file in the project root directory:
 
 1. **Initialization Failure**
    - Check project directory permissions
-   - Ensure the project contains sufficient source code files
-   - Check log files for specific errors
+   - Ensure project contains sufficient source code files
+   - Check log files under `.memddc/logs/`
 
-2. **Memory Loading Failure**
-   - Check if memory snapshot file exists
-   - Verify file format is correct
-   - Try reinitializing the project
+2. **Trigger Not Working**
+   - Check trigger configuration in `config.json`
+   - Confirm code file extensions are within scan range
 
-3. **Document Update Failure**
-   - Check document directory permissions
+3. **Document Synchronization Failure**
+   - Check `.memddc/docs/` directory permissions
    - Ensure sufficient disk space
-   - Check log files for specific errors
 
-4. **Code Style Check Failure**
-   - Check if code style configuration file is correct
-   - Ensure code style checker has execution permissions
-   - Check log files for specific errors
+4. **Team Synchronization Conflict**
+   - Use `memddc-sync` command for manual synchronization
+   - Check conflict details and manually merge
 
 ## Version History
+
+- **v1.0.1** - Team Collaboration Upgrade (Current Version)
+  - Added `.memddc/` unified storage directory
+  - Added intelligent triggering mechanism (auto-trigger on code changes)
+  - Added multi-strategy document generation (by language/architecture/type)
+  - Added active request capability
+  - Added team collaboration support
+  - Optimized document structure and organization
 
 - **v1.0.0** - Initial Version
   - Implemented project scanning and document generation
