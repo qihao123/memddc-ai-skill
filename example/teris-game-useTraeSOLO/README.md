@@ -43,7 +43,7 @@
 
 ### 项目结构
 ```
-teris-game2/
+teris-game-useTraeSOLO/
 ├── index.html      # 游戏页面结构
 ├── style.css       # 游戏样式和动画
 ├── tetris.js       # 游戏核心逻辑
