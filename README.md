@@ -213,6 +213,7 @@ AI（已加载 ddd-model.md）：
    3. 释放库存
    
    建议实现 OrderTimeoutJob 定时任务：
+   ```
    ```java
    @Scheduled(fixedRate = 60000)
    public void checkTimeoutOrders() {
@@ -221,7 +222,7 @@ AI（已加载 ddd-model.md）：
        // 发布 OrderCancelled 事件
    }
    ```
-```
+
 
 #### 示例 3：保持一致性
 
