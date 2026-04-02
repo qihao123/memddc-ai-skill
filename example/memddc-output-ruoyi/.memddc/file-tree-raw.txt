@@ -1,0 +1,213 @@
+RuoYi-Vue/
+├── bin/
+├── doc/
+├── ruoyi-admin/
+│   └── src/main/java/com/ruoyi/
+│       ├── RuoYiApplication.java
+│       ├── RuoYiServletInitializer.java
+│       └── web/controller/
+│           ├── common/
+│           │   ├── CaptchaController.java
+│           │   └── CommonController.java
+│           ├── monitor/
+│           │   ├── CacheController.java
+│           │   ├── ServerController.java
+│           │   ├── SysLogininforController.java
+│           │   ├── SysOperlogController.java
+│           │   └── SysUserOnlineController.java
+│           └── system/
+│               ├── SysConfigController.java
+│               ├── SysDeptController.java
+│               ├── SysDictDataController.java
+│               ├── SysDictTypeController.java
+│               ├── SysIndexController.java
+│               ├── SysLoginController.java
+│               ├── SysMenuController.java
+│               ├── SysNoticeController.java
+│               ├── SysPostController.java
+│               ├── SysProfileController.java
+│               ├── SysRegisterController.java
+│               ├── SysRoleController.java
+│               └── SysUserController.java
+├── ruoyi-common/
+│   └── src/main/java/com/ruoyi/common/
+│       ├── core/
+│       │   ├── domain/
+│       │   │   ├── BaseEntity.java
+│       │   │   ├── TreeEntity.java
+│       │   │   ├── entity/
+│       │   │   │   ├── SysDept.java
+│       │   │   │   ├── SysDictData.java
+│       │   │   │   ├── SysDictType.java
+│       │   │   │   ├── SysMenu.java
+│       │   │   │   ├── SysRole.java
+│       │   │   │   └── SysUser.java
+│       │   │   └── model/
+│       │   │       ├── LoginBody.java
+│       │   │       ├── LoginUser.java
+│       │   │       └── RegisterBody.java
+│       │   ├── controller/BaseController.java
+│       │   ├── domain/AjaxResult.java
+│       │   ├── page/
+│       │   │   ├── PageDomain.java
+│       │   │   ├── TableDataInfo.java
+│       │   │   └── TableSupport.java
+│       │   ├── redis/RedisCache.java
+│       │   └── text/
+│       ├── utils/
+│       └── annotation/
+├── ruoyi-framework/
+│   └── src/main/java/com/ruoyi/framework/
+│       ├── config/
+│       ├── security/
+│       ├── interceptor/
+│       └── web/
+├── ruoyi-generator/
+│   └── src/main/java/com/ruoyi/generator/
+│       ├── controller/GenController.java
+│       ├── domain/GenTable.java
+│       ├── domain/GenTableColumn.java
+│       ├── mapper/GenTableMapper.java
+│       ├── mapper/GenTableColumnMapper.java
+│       ├── service/IGenTableService.java
+│       ├── service/IGenTableColumnService.java
+│       ├── service/GenTableServiceImpl.java
+│       ├── service/GenTableColumnServiceImpl.java
+│       ├── util/VelocityUtils.java
+│       ├── util/GenUtils.java
+│       └── config/GenConfig.java
+├── ruoyi-quartz/
+│   └── src/main/java/com/ruoyi/quartz/
+│       ├── controller/SysJobController.java
+│       ├── controller/SysJobLogController.java
+│       ├── domain/SysJob.java
+│       ├── domain/SysJobLog.java
+│       ├── mapper/SysJobMapper.java
+│       ├── mapper/SysJobLogMapper.java
+│       ├── service/ISysJobService.java
+│       ├── service/ISysJobLogService.java
+│       ├── service/impl/SysJobServiceImpl.java
+│       ├── service/impl/SysJobLogServiceImpl.java
+│       ├── task/RyTask.java
+│       └── util/
+│           ├── CronUtils.java
+│           ├── JobInvokeUtil.java
+│           ├── ScheduleUtils.java
+│           └── QuartzJobExecution.java
+├── ruoyi-system/
+│   └── src/main/java/com/ruoyi/system/
+│       ├── domain/
+│       │   ├── SysCache.java
+│       │   ├── SysConfig.java
+│       │   ├── SysLogininfor.java
+│       │   ├── SysNotice.java
+│       │   ├── SysNoticeRead.java
+│       │   ├── SysOperLog.java
+│       │   ├── SysPost.java
+│       │   ├── SysRoleDept.java
+│       │   ├── SysRoleMenu.java
+│       │   ├── SysUserOnline.java
+│       │   ├── SysUserPost.java
+│       │   ├── SysUserRole.java
+│       │   └── vo/
+│       │       ├── MetaVo.java
+│       │       └── RouterVo.java
+│       ├── mapper/
+│       │   ├── SysConfigMapper.java
+│       │   ├── SysDeptMapper.java
+│       │   ├── SysDictDataMapper.java
+│       │   ├── SysDictTypeMapper.java
+│       │   ├── SysLogininforMapper.java
+│       │   ├── SysMenuMapper.java
+│       │   ├── SysNoticeMapper.java
+│       │   ├── SysNoticeReadMapper.java
+│       │   ├── SysOperLogMapper.java
+│       │   ├── SysPostMapper.java
+│       │   ├── SysRoleDeptMapper.java
+│       │   ├── SysRoleMapper.java
+│       │   ├── SysRoleMenuMapper.java
+│       │   ├── SysUserMapper.java
+│       │   ├── SysUserPostMapper.java
+│       │   └── SysUserRoleMapper.java
+│       └── service/
+│           ├── ISysConfigService.java
+│           ├── ISysDeptService.java
+│           ├── ISysDictDataService.java
+│           ├── ISysDictTypeService.java
+│           ├── ISysLogininforService.java
+│           ├── ISysMenuService.java
+│           ├── ISysNoticeReadService.java
+│           ├── ISysNoticeService.java
+│           ├── ISysOperLogService.java
+│           ├── ISysPostService.java
+│           ├── ISysRoleService.java
+│           ├── ISysUserOnlineService.java
+│           ├── ISysUserService.java
+│           └── impl/
+│               ├── SysConfigServiceImpl.java
+│               ├── SysDeptServiceImpl.java
+│               ├── SysDictDataServiceImpl.java
+│               ├── SysDictTypeServiceImpl.java
+│               ├── SysLogininforServiceImpl.java
+│               ├── SysMenuServiceImpl.java
+│               ├── SysNoticeReadServiceImpl.java
+│               ├── SysNoticeServiceImpl.java
+│               ├── SysOperLogServiceImpl.java
+│               ├── SysPostServiceImpl.java
+│               ├── SysRoleServiceImpl.java
+│               ├── SysUserOnlineServiceImpl.java
+│               └── SysUserServiceImpl.java
+└── ruoyi-ui/
+    ├── src/
+    │   ├── api/
+    │   │   ├── login.js
+    │   │   ├── menu.js
+    │   │   ├── monitor/
+    │   │   │   ├── cache.js
+    │   │   │   ├── job.js
+    │   │   │   ├── jobLog.js
+    │   │   │   ├── logininfor.js
+    │   │   │   ├── online.js
+    │   │   │   ├── operlog.js
+    │   │   │   └── server.js
+    │   │   ├── system/
+    │   │   │   ├── config.js
+    │   │   │   ├── dept.js
+    │   │   │   ├── dict/
+    │   │   │   │   ├── data.js
+    │   │   │   │   └── type.js
+    │   │   │   ├── menu.js
+    │   │   │   ├── notice.js
+    │   │   │   ├── post.js
+    │   │   │   ├── role.js
+    │   │   │   └── user.js
+    │   │   └── tool/
+    │   │       └── gen.js
+    │   ├── components/
+    │   ├── layout/
+    │   ├── router/
+    │   ├── store/
+    │   ├── utils/
+    │   └── views/
+    │       ├── login.vue
+    │       ├── index.vue
+    │       ├── monitor/
+    │       │   ├── cache/
+    │       │   ├── druid/
+    │       │   ├── job/
+    │       │   ├── logininfor/
+    │       │   ├── online/
+    │       │   ├── operlog/
+    │       │   └── server/
+    │       ├── system/
+    │       │   ├── config/
+    │       │   ├── dept/
+    │       │   ├── dict/
+    │       │   ├── menu/
+    │       │   ├── notice/
+    │       │   ├── post/
+    │       │   ├── role/
+    │       │   └── user/
+    │       └── tool/
+    │           └── gen/
+    └── vue.config.js

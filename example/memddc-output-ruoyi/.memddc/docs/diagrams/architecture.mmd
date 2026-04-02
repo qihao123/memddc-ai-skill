@@ -1,0 +1,59 @@
+graph TB
+    subgraph Frontend["前端层 - Vue2 + ElementUI"]
+        UI[ruoyi-ui]
+        Views[Views 页面]
+        API[API 接口]
+        Components[公共组件]
+    end
+    
+    subgraph Backend["后端层 - Spring Boot"]
+        subgraph Admin["ruoyi-admin"]
+            Controllers[Controllers 控制器]
+        end
+        
+        subgraph Framework["ruoyi-framework"]
+            Security[Security 安全]
+            Interceptor[Interceptor 拦截器]
+            Exception[Exception 异常处理]
+        end
+        
+        subgraph System["ruoyi-system"]
+            Services[Services 业务逻辑]
+            Mappers[Mappers 数据访问]
+            Domains[Domains 领域对象]
+        end
+        
+        subgraph Common["ruoyi-common"]
+            Entities[Entities 核心实体]
+            Utils[Utils 工具类]
+            Annotations[Annotations 注解]
+        end
+        
+        subgraph Quartz["ruoyi-quartz"]
+            Jobs[Jobs 定时任务]
+        end
+        
+        subgraph Generator["ruoyi-generator"]
+            GenService[CodeGen 代码生成]
+        end
+    end
+    
+    subgraph Data["数据层"]
+        MySQL[(MySQL 数据库)]
+        Redis[(Redis 缓存)]
+    end
+    
+    UI --> Views
+    Views --> API
+    API --> Controllers
+    Controllers --> Services
+    Services --> Mappers
+    Mappers --> MySQL
+    Services --> Entities
+    Entities --> Domains
+    Controllers --> Security
+    Security --> Interceptor
+    Services --> Utils
+    Jobs --> Services
+    GenService --> Mappers
+    Services --> Redis
