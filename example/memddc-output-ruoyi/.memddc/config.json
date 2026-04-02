@@ -1,0 +1,41 @@
+{
+  "version": "1.0.2",
+  "project": {
+    "name": "RuoYi-Vue",
+    "type": "backend+frontend",
+    "language": "java+javascript",
+    "framework": "spring-boot+vue",
+    "architecture": "mvc"
+  },
+  "team": {
+    "shared": true,
+    "syncBranch": "main"
+  },
+  "triggers": {
+    "codeChange": true,
+    "structureChange": true,
+    "configChange": true,
+    "manual": true,
+    "scheduled": false
+  },
+  "document": {
+    "types": ["architecture", "business", "api", "database"],
+    "includeDiagrams": true,
+    "autoUpdate": true,
+    "analyzeUserDocs": true
+  },
+  "vcs": {
+    "enabled": true,
+    "logLimit": 100,
+    "type": "git"
+  },
+  "fileAnalysis": {
+    "enabled": true,
+    "includeIdeIndexes": true
+  },
+  "compression": {
+    "level": 7,
+    "contextLimit": 128000,
+    "autoCompressThreshold": 0.8
+  }
+}

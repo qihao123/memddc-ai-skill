@@ -1,0 +1,100 @@
+ea3410e1 update tree-panel ref 
+79791247 新增树分割组件TreePanel 
+3b42c7c6 支持表格列显隐状态记忆 
+26d7bb25 支持多sheet导出 
+6775ed78 代码生成支持表单布局选项 
+b3a25724 update sqlkeyword 
+0e2d75c2 若依 3.9.2 
+2a26aa13 优化页签全屏显示 
+3fa4a4b5 优化快速点击页签刷新出现404问题 
+3c2186cf 修复typescript版多表代码生成报错问题 
+7282667d 菜单管理列表新增类型显示 
+4b1fad5f 优化菜单主题风格 
+58bc7043 升级axios到最新版本0.30.3 
+677400b9 优化页签显示 
+959a2ffd 添加持久化标签页开关功能 
+ec0ca11c 添加持久化标签页开关功能 
+0f734eda 菜单搜索支持文本高亮&数量提示 
+d3831bf4 优化tag全屏为页签内区域 
+9c6ae1dd 页签左右滚动效果兼容所有环境不依赖behavior 
+20dc6b39 优化页签功能&支持全屏按钮操作 
+fa224503 保存排序添加编辑权限 
+b869c962 优化点击任务名称查看详细 
+f7665b9e 字典类型列表新增抽屉效果详细信息 
+b508e05b 菜单管理支持批量保存排序 
+01fd7be6 部门管理支持批量保存排序 
+16a78c81 新增锁定屏幕功能 
+01780ea5 新增锁定屏幕功能 
+9f0b31eb 优化定时任务详情页展示&补充执行时间字段 
+fde9db31 操作日志详细页面优化 
+5b52281f 首页新增通知公告消息提醒 
+f80143ec 优化RightToolbar搜索栏切换动画 
+7816597b TypeScript前端代码生成模板同步到最新 
+a6f142db remove test code 
+51d11c39 update README.md 
+c5677434 项目升级到 Spring Boot 4 
+1d294464 升级fastjson到最新版2.0.61 
+140a7fb6 升级oshi到最新版本6.10.0 
+0d85aa50 优化Excel自定义格式样式重复创建问题 
+ed916656 删除无用的注解 
+85cb89f1 !1148 修复IP查询失败的问题 update address url 
+8aef19ba update ruoyi-common/src/main/java/com/ruoyi/common/utils/ip/AddressUtils.java. 修复此Issuse https://gitee.com/y_project/RuoYi-Vue/issues/IDR6LP  经验证发现使用http协议时会出现IP地址查询失败的情况，替换为https后正常 Signed-off-by: chniccs <chniccs@163.com>
+83bc1a33 !1146 update ruoyi-ui/src/views/system/dict/index.vue. Merge pull request !1146 from NewYoung208/master 
+b9c7731c update ruoyi-ui/src/views/system/dict/index.vue. 优化代码 Signed-off-by: NewYoung208 <niuyang208@163.com>
+850b86e0 优化字典类型属性提醒说明 
+8a1cf9ed update README.md 
+600e0690 update README.md 
+6281609d 添加新群号：127358632 
+2cf825dd 优化代码 
+245baa70 添加菜单路由地址和名称的校验规则 
+cfe076eb 优化防重提交间隔时间可自定义 
+1f2f11f8 修复Excel自定义格式样式污染问题 
+12fb035b copyright 2026 
+98a8545c 将isAdmin方法统一到SecurityUtils 
+fdb1853a !1129 将isAdmin方法统一到SecurityUtils Merge pull request !1129 from MicyToy/enhance/unified_is_admin 
+8c6b4a96 将isAdmin方法统一到SecurityUtils 
+5e83011d !1127 fix: 修正 UserAgent 解析逻辑，正确设置浏览器和操作系统字段 Merge pull request !1127 from yeleiyun/fix-useragent-bug 
+b12dab2d fix: 修正 UserAgent 解析逻辑，正确设置浏览器和操作系统字段 
+7b75f9ac 优化topbar顶部菜单样式 
+4615293b 若依 3.9.1 
+ba5cf9de 默认固定头部 
+6de392ba 优化字典组件值宽松匹配 
+49f62e56 菜单导航设置支持纯顶部 
+5579b57b 升级druid到最新版本1.2.27 
+88609b3b 升级oshi到最新版本6.9.1 
+03f3f473 升级commons.io到最新版本2.21.0 
+b5400d96 升级fastjson到最新版2.0.60 
+e7ef3241 update sqlkeyword 
+eb6878e1 使用yauaa代替bitwalker 
+84992251 优化用户密码字段序列化配置 
+4a5e45d1 优化数据权限控制逻辑，放开permission限制 
+188e50ff 支持Excel导出对象的多个子列表 
+bd66cc72 优化表单构建关闭页签销毁复制插件 
+866b4700 忽略用户密码字段的JSON序列化 
+f38f0b2c 升级tomcat到最新版本9.0.112 
+faa86ac9 优化代码 
+ad280e82 优化生成代码下载的zip文件名 
+6e1aa42e 网页标题设置新增SET_TITLE方法 
+31590104 支持Excel导出对象的多个子列表 
+91263711 登录/注册页面底部版权信息修改为读取配置 
+9372d340 修复v3时间控件between选择后清空报错问题 
+0eaa090f 修复表单构建移除所有控件后切换路由回来空白问题 
+a5ade3c 修复comboReadDict属性下多个sheet出现的报错(ICWQ8E) 
+075e9646 添加新群号：174569686 
+41496b6d 升级spring-security到安全版本 
+4a401984 升级fastjson到最新版2.0.58 
+e5faee66 修复固定头部时出现的导航栏偏移问题(ICV9OH) 
+7558c176 支持防盗链功能 
+4a5b0e60 升级oshi到最新版本6.8.3 
+08637e31 优化代码 
+512b1578 优化代码 
+5e8efaa9 !1082 修复每次登录把部门id更新为null Merge pull request !1082 from afterglow/master 
+5f11fed4 用户导入添加验证提示 
+b60b5de7 优化布局设置显示 
+41ff3843 修复每次登录把部门id更新为null 
+6a2e8a35 修复用户归属部门无法修改为空问题 
+76916557 columns default value 
+18c8d4ec 显示列信息支持对象格式 
+191fd293 自动识别json对象白名单配置范围缩小 
+47510fe2 升级tomcat到最新版本9.0.108 
+725c7dce 添加新群号：191164766

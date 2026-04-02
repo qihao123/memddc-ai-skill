@@ -1,0 +1,18 @@
+# MemDDC 日志和临时文件
+logs/
+*.log
+
+# 本地配置文件（可选）
+config.local.json
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 压缩包（可选，根据团队决策）
+# snapshots/*.zip

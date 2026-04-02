@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "version": "1.0.2",
+    "project": {
+      "name": "RuoYi-Vue",
+      "version": "3.9.2",
+      "type": "backend+frontend",
+      "language": "java+javascript",
+      "framework": "spring-boot-4.0.3+vue2",
+      "architecture": "mvc"
+    },
+    "scanTime": "2026-04-02T21:59:39+08:00",
+    "statistics": {
+      "backendJavaFiles": 266,
+      "frontendFiles": 176,
+      "controllers": 25,
+      "services": 36,
+      "mapperXml": 20,
+      "databaseTables": 20,
+      "vuePages": 18
+    }
+  },
+  "index": {
+    "entities": {
+      "SysUser": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/SysUser.java", "module": "ruoyi-common", "table": "sys_user" },
+      "SysRole": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/SysRole.java", "module": "ruoyi-common", "table": "sys_role" },
+      "SysMenu": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/SysMenu.java", "module": "ruoyi-common", "table": "sys_menu" },
+      "SysDept": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/SysDept.java", "module": "ruoyi-common", "table": "sys_dept" },
+      "SysPost": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/SysPost.java", "module": "ruoyi-common", "table": "sys_post" },
+      "SysDictType": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/SysDictType.java", "module": "ruoyi-common", "table": "sys_dict_type" },
+      "SysDictData": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/SysDictData.java", "module": "ruoyi-common", "table": "sys_dict_data" },
+      "SysConfig": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/SysConfig.java", "module": "ruoyi-common", "table": "sys_config" },
+      "SysNotice": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/SysNotice.java", "module": "ruoyi-common", "table": "sys_notice" },
+      "SysJob": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/SysJob.java", "module": "ruoyi-common", "table": "sys_job" },
+      "SysJobLog": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/SysJobLog.java", "module": "ruoyi-common", "table": "sys_job_log" },
+      "SysLogininfor": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/SysLogininfor.java", "module": "ruoyi-common", "table": "sys_logininfor" },
+      "SysOperLog": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/SysOperLog.java", "module": "ruoyi-common", "table": "sys_oper_log" },
+      "GenTable": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/GenTable.java", "module": "ruoyi-common", "table": "gen_table" },
+      "GenTableColumn": { "path": "ruoyi-common/src/main/java/com/ruoyi/common/core/domain/entity/GenTableColumn.java", "module": "ruoyi-common", "table": "gen_table_column" }
+    },
+    "controllers": {
+      "SysLoginController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysLoginController.java", "module": "ruoyi-admin", "basePath": "/system" },
+      "SysUserController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java", "module": "ruoyi-admin", "basePath": "/system" },
+      "SysRoleController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java", "module": "ruoyi-admin", "basePath": "/system" },
+      "SysMenuController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysMenuController.java", "module": "ruoyi-admin", "basePath": "/system" },
+      "SysDeptController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java", "module": "ruoyi-admin", "basePath": "/system" },
+      "SysDictTypeController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java", "module": "ruoyi-admin", "basePath": "/system" },
+      "SysDictDataController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java", "module": "ruoyi-admin", "basePath": "/system" },
+      "SysConfigController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java", "module": "ruoyi-admin", "basePath": "/system" },
+      "SysNoticeController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysNoticeController.java", "module": "ruoyi-admin", "basePath": "/system" },
+      "SysJobController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysJobController.java", "module": "ruoyi-admin", "basePath": "/monitor" },
+      "SysJobLogController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysJobLogController.java", "module": "ruoyi-admin", "basePath": "/monitor" },
+      "SysLogininforController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysLogininforController.java", "module": "ruoyi-admin", "basePath": "/monitor" },
+      "SysOperlogController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysOperlogController.java", "module": "ruoyi-admin", "basePath": "/monitor" },
+      "GenController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/GenController.java", "module": "ruoyi-admin", "basePath": "/tool" },
+      "ServerController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/ServerController.java", "module": "ruoyi-admin", "basePath": "/monitor" },
+      "CacheController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/CacheController.java", "module": "ruoyi-admin", "basePath": "/monitor" },
+      "SysUserOnlineController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysUserOnlineController.java", "module": "ruoyi-admin", "basePath": "/monitor" },
+      "CommonController": { "path": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/common/CommonController.java", "module": "ruoyi-admin", "basePath": "/common" }
+    },
+    "services": {
+      "SysLoginService": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/service/SysLoginService.java", "module": "ruoyi-system" },
+      "TokenService": { "path": "ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/TokenService.java", "module": "ruoyi-framework" },
+      "PermissionService": { "path": "ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/PermissionService.java", "module": "ruoyi-framework" },
+      "SysUserServiceImpl": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysUserServiceImpl.java", "module": "ruoyi-system", "interface": "ISysUserService" },
+      "SysRoleServiceImpl": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysRoleServiceImpl.java", "module": "ruoyi-system", "interface": "ISysRoleService" },
+      "SysMenuServiceImpl": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysMenuServiceImpl.java", "module": "ruoyi-system", "interface": "ISysMenuService" },
+      "SysDeptServiceImpl": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysDeptServiceImpl.java", "module": "ruoyi-system", "interface": "ISysDeptService" },
+      "SysDictTypeServiceImpl": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysDictTypeServiceImpl.java", "module": "ruoyi-system", "interface": "ISysDictTypeService" },
+      "SysDictDataServiceImpl": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysDictDataServiceImpl.java", "module": "ruoyi-system", "interface": "ISysDictDataService" },
+      "SysJobServiceImpl": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysJobServiceImpl.java", "module": "ruoyi-system", "interface": "ISysJobService" },
+      "GenTableServiceImpl": { "path": "ruoyi-generator/src/main/java/com/ruoyi/generator/service/impl/GenTableServiceImpl.java", "module": "ruoyi-generator", "interface": "IGenTableService" }
+    },
+    "mappers": {
+      "SysDeptMapper": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/mapper/SysDeptMapper.java", "xml": "ruoyi-system/src/main/resources/mapper/system/SysDeptMapper.xml", "module": "ruoyi-system", "table": "sys_dept" },
+      "SysUserMapper": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/mapper/SysUserMapper.java", "xml": "ruoyi-system/src/main/resources/mapper/system/SysUserMapper.xml", "module": "ruoyi-system", "table": "sys_user" },
+      "SysRoleMapper": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/mapper/SysRoleMapper.java", "xml": "ruoyi-system/src/main/resources/mapper/system/SysRoleMapper.xml", "module": "ruoyi-system", "table": "sys_role" },
+      "SysMenuMapper": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/mapper/SysMenuMapper.java", "xml": "ruoyi-system/src/main/resources/mapper/system/SysMenuMapper.xml", "module": "ruoyi-system", "table": "sys_menu" },
+      "SysDictTypeMapper": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/mapper/SysDictTypeMapper.java", "xml": "ruoyi-system/src/main/resources/mapper/system/SysDictTypeMapper.xml", "module": "ruoyi-system", "table": "sys_dict_type" },
+      "SysDictDataMapper": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/mapper/SysDictDataMapper.java", "xml": "ruoyi-system/src/main/resources/mapper/system/SysDictDataMapper.xml", "module": "ruoyi-system", "table": "sys_dict_data" },
+      "SysPostMapper": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/mapper/SysPostMapper.java", "xml": "ruoyi-system/src/main/resources/mapper/system/SysPostMapper.xml", "module": "ruoyi-system", "table": "sys_post" },
+      "SysConfigMapper": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/mapper/SysConfigMapper.java", "xml": "ruoyi-system/src/main/resources/mapper/system/SysConfigMapper.xml", "module": "ruoyi-system", "table": "sys_config" },
+      "SysNoticeMapper": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/mapper/SysNoticeMapper.java", "xml": "ruoyi-system/src/main/resources/mapper/system/SysNoticeMapper.xml", "module": "ruoyi-system", "table": "sys_notice" },
+      "SysJobMapper": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/mapper/SysJobMapper.java", "xml": "ruoyi-system/src/main/resources/mapper/system/SysJobMapper.xml", "module": "ruoyi-system", "table": "sys_job" },
+      "SysJobLogMapper": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/mapper/SysJobLogMapper.java", "xml": "ruoyi-system/src/main/resources/mapper/system/SysJobLogMapper.xml", "module": "ruoyi-system", "table": "sys_job_log" },
+      "SysLogininforMapper": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/mapper/SysLogininforMapper.java", "xml": "ruoyi-system/src/main/resources/mapper/system/SysLogininforMapper.xml", "module": "ruoyi-system", "table": "sys_logininfor" },
+      "SysOperLogMapper": { "path": "ruoyi-system/src/main/java/com/ruoyi/system/mapper/SysOperLogMapper.java", "xml": "ruoyi-system/src/main/resources/mapper/system/SysOperLogMapper.xml", "module": "ruoyi-system", "table": "sys_oper_log" },
+      "GenTableMapper": { "path": "ruoyi-generator/src/main/java/com/ruoyi/generator/mapper/GenTableMapper.java", "xml": "ruoyi-generator/src/main/resources/mapper/generator/GenTableMapper.xml", "module": "ruoyi-generator", "table": "gen_table" },
+      "GenTableColumnMapper": { "path": "ruoyi-generator/src/main/java/com/ruoyi/generator/mapper/GenTableColumnMapper.java", "xml": "ruoyi-generator/src/main/resources/mapper/generator/GenTableColumnMapper.xml", "module": "ruoyi-generator", "table": "gen_table_column" }
+    },
+    "apis": {
+      "system/user": { "path": "ruoyi-ui/src/api/system/user.js", "module": "ruoyi-ui" },
+      "system/role": { "path": "ruoyi-ui/src/api/system/role.js", "module": "ruoyi-ui" },
+      "system/menu": { "path": "ruoyi-ui/src/api/system/menu.js", "module": "ruoyi-ui" },
+      "system/dept": { "path": "ruoyi-ui/src/api/system/dept.js", "module": "ruoyi-ui" },
+      "system/post": { "path": "ruoyi-ui/src/api/system/post.js", "module": "ruoyi-ui" },
+      "system/dict": { "path": "ruoyi-ui/src/api/system/dict.js", "module": "ruoyi-ui" },
+      "system/config": { "path": "ruoyi-ui/src/api/system/config.js", "module": "ruoyi-ui" },
+      "system/notice": { "path": "ruoyi-ui/src/api/system/notice.js", "module": "ruoyi-ui" },
+      "monitor/job": { "path": "ruoyi-ui/src/api/monitor/job.js", "module": "ruoyi-ui" },
+      "monitor/logininfor": { "path": "ruoyi-ui/src/api/monitor/logininfor.js", "module": "ruoyi-ui" },
+      "monitor/operlog": { "path": "ruoyi-ui/src/api/monitor/operlog.js", "module": "ruoyi-ui" },
+      "monitor/online": { "path": "ruoyi-ui/src/api/monitor/online.js", "module": "ruoyi-ui" },
+      "tool/gen": { "path": "ruoyi-ui/src/api/tool/gen.js", "module": "ruoyi-ui" }
+    },
+    "views": {
+      "system/user": { "path": "ruoyi-ui/src/views/system/user/index.vue", "module": "ruoyi-ui" },
+      "system/role": { "path": "ruoyi-ui/src/views/system/role/index.vue", "module": "ruoyi-ui" },
+      "system/menu": { "path": "ruoyi-ui/src/views/system/menu/index.vue", "module": "ruoyi-ui" },
+      "system/dept": { "path": "ruoyi-ui/src/views/system/dept/index.vue", "module": "ruoyi-ui" },
+      "system/post": { "path": "ruoyi-ui/src/views/system/post/index.vue", "module": "ruoyi-ui" },
+      "system/dict": { "path": "ruoyi-ui/src/views/system/dict/index.vue", "module": "ruoyi-ui" },
+      "system/config": { "path": "ruoyi-ui/src/views/system/config/index.vue", "module": "ruoyi-ui" },
+      "system/notice": { "path": "ruoyi-ui/src/views/system/notice/index.vue", "module": "ruoyi-ui" },
+      "monitor/job": { "path": "ruoyi-ui/src/views/monitor/job/index.vue", "module": "ruoyi-ui" },
+      "monitor/logininfor": { "path": "ruoyi-ui/src/views/monitor/logininfor/index.vue", "module": "ruoyi-ui" },
+      "monitor/operlog": { "path": "ruoyi-ui/src/views/monitor/operlog/index.vue", "module": "ruoyi-ui" },
+      "monitor/online": { "path": "ruoyi-ui/src/views/monitor/online/index.vue", "module": "ruoyi-ui" },
+      "monitor/server": { "path": "ruoyi-ui/src/views/monitor/server/index.vue", "module": "ruoyi-ui" },
+      "monitor/cache": { "path": "ruoyi-ui/src/views/monitor/cache/index.vue", "module": "ruoyi-ui" },
+      "tool/gen": { "path": "ruoyi-ui/src/views/tool/gen/index.vue", "module": "ruoyi-ui" },
+      "tool/swagger": { "path": "ruoyi-ui/src/views/tool/swagger/index.vue", "module": "ruoyi-ui" },
+      "tool/build": { "path": "ruoyi-ui/src/views/tool/build/index.vue", "module": "ruoyi-ui" },
+      "dashboard": { "path": "ruoyi-ui/src/views/dashboard/index.vue", "module": "ruoyi-ui" }
+    },
+    "modules": {
+      "ruoyi-admin": { "type": "backend", "role": "启动入口 + Web Controller" },
+      "ruoyi-system": { "type": "backend", "role": "系统管理业务（Service / Mapper / Domain）" },
+      "ruoyi-framework": { "type": "backend", "role": "安全、AOP、数据源、Redis、Web 配置" },
+      "ruoyi-common": { "type": "backend", "role": "公共实体、工具类、常量、注解" },
+      "ruoyi-generator": { "type": "backend", "role": "代码生成器（Velocity 模板）" },
+      "ruoyi-quartz": { "type": "backend", "role": "定时任务调度（Quartz）" },
+      "ruoyi-ui": { "type": "frontend", "role": "Vue2 + ElementUI 前端" }
+    }
+  },
+  "context": {
+    "vcsSummary": {
+      "type": "git",
+      "recentCommits": 20,
+      "patterns": [
+        "持续优化页签功能",
+        "UI交互增强（表格列记忆、TreePanel、菜单搜索高亮）",
+        "代码生成器改进（表单布局、TypeScript修复）",
+        "安全更新（axios升级）"
+      ]
+    },
+    "structureAnalysis": {
+      "backendPattern": "经典MVC分层，Controller→Service→Mapper，common模块下沉公共实体",
+      "frontendPattern": "Vue2中后台标准结构，views按功能域划分，api与views对应",
+      "notableFeatures": [
+        "前后端完全分离",
+        "JWT+Redis会话",
+        "AOP日志/数据权限/限流/防重",
+        "代码生成器自动化",
+        "Druid监控集成",
+        "SpringDoc API文档"
+      ]
+    },
+    "patterns": {
+      "treeBuild": "后端 SysDeptServiceImpl#recursionFn 递归构建树，子节点数据可向上汇总",
+      "pagination": "后端 PageHelper + 前端 el-pagination",
+      "permission": "Controller 使用 @PreAuthorize(@ss.hasPermi('module:func:action'))，前端使用 v-hasPermi",
+      "crudApi": "listXxx / getXxx / addXxx / updateXxx / delXxx",
+      "pagePattern": "搜索表单 + 操作按钮 + el-table + pagination + el-dialog"
+    },
+    "codeStyle": {
+      "java": {
+        "packageNaming": "com.ruoyi.xxx",
+        "serviceInterfacePrefix": "I",
+        "controllerExtends": "BaseController",
+        "returnTypeList": "TableDataInfo",
+        "returnTypeOperation": "AjaxResult",
+        "permissionAnnotation": "@PreAuthorize(@ss.hasPermi('module:func:action'))"
+      },
+      "vue": {
+        "apiPrefix": ["list", "get", "add", "update", "del"],
+        "pagePattern": "search + table + pagination + dialog",
+        "componentStyle": "PascalCase for components, camelCase for variables"
+      }
+    },
+    "constraints": {
+      "userStatus": "0=normal,1=disabled",
+      "menuType": "M=directory,C=menu,F=button",
+      "dataScope": "1=all,2=currentDept,3=currentAndSubDept,4=selfOnly,5=custom",
+      "jobStatus": "0=normal,1=pause",
+      "noticeType": "1=notice,2=announcement"
+    },
+    "userDocsAnalyzed": false
+  }
+}

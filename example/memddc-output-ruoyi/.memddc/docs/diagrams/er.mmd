@@ -1,0 +1,118 @@
+erDiagram
+    SYS_USER ||--o{ SYS_USER_ROLE : has
+    SYS_USER }o--|| SYS_DEPT : belongs_to
+    SYS_ROLE ||--o{ SYS_USER_ROLE : has
+    SYS_ROLE ||--o{ SYS_ROLE_MENU : has
+    SYS_ROLE ||--o{ SYS_ROLE_DEPT : has_data_scope
+    SYS_MENU }o--o{ SYS_ROLE_MENU : contains
+    SYS_DEPT ||--o{ SYS_ROLE_DEPT : in_scope
+    SYS_DEPT ||--o{ SYS_DEPT : parent_child
+    SYS_DICT_TYPE ||--o{ SYS_DICT_DATA : contains
+
+    SYS_USER {
+        bigint userId PK
+        bigint deptId FK
+        varchar userName
+        varchar nickName
+        varchar email
+        varchar phonenumber
+        varchar sex
+        varchar avatar
+        varchar password
+        char status
+        char delFlag
+        varchar loginIp
+        datetime loginDate
+    }
+
+    SYS_DEPT {
+        bigint deptId PK
+        bigint parentId
+        varchar ancestors
+        varchar deptName
+        int orderNum
+        varchar leader
+        varchar phone
+        varchar email
+        char status
+        char delFlag
+    }
+
+    SYS_ROLE {
+        bigint roleId PK
+        varchar roleName
+        varchar roleKey
+        int roleSort
+        char dataScope
+        char status
+        char delFlag
+    }
+
+    SYS_MENU {
+        bigint menuId PK
+        varchar menuName
+        bigint parentId
+        int orderNum
+        varchar path
+        varchar component
+        char isFrame
+        char isCache
+        char menuType
+        char visible
+        char status
+    }
+
+    SYS_USER_ROLE {
+        bigint userId FK
+        bigint roleId FK
+    }
+
+    SYS_ROLE_MENU {
+        bigint roleId FK
+        bigint menuId FK
+    }
+
+    SYS_ROLE_DEPT {
+        bigint roleId FK
+        bigint deptId FK
+    }
+
+    SYS_DICT_TYPE {
+        bigint dictId PK
+        varchar dictName
+        varchar dictType
+        char status
+    }
+
+    SYS_DICT_DATA {
+        bigint dictCode PK
+        bigint dictSort
+        varchar dictLabel
+        varchar dictValue
+        varchar dictType FK
+        char status
+    }
+
+    SYS_POST {
+        bigint postId PK
+        varchar postCode
+        varchar postName
+        int postSort
+        char status
+    }
+
+    SYS_CONFIG {
+        bigint configId PK
+        varchar configName
+        varchar configKey
+        varchar configValue
+        char configType
+    }
+
+    SYS_NOTICE {
+        bigint noticeId PK
+        varchar noticeTitle
+        char noticeType
+        text noticeContent
+        char status
+    }
