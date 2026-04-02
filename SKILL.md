@@ -46,12 +46,11 @@
   - 架构决策历史
 - **增量更新**: 初始化或更新时，自动检测docs目录变化
 
-### 2. 团队协作支持
+## 团队协作（基础版）
 
-- **统一存储位置**: 所有文档和配置统一存放在 `.memddc/` 目录下，便于团队成员同步和共享
-- **配置集中管理**: 团队共享配置文件，确保所有成员使用一致的文档生成策略
-- **冲突解决机制**: 智能检测多人同时修改的冲突，提供合并建议
-- **权限控制**: 支持设置不同成员的文档修改权限
+- **团队共享目录**: `.memddc/`
+- **共享配置**: `config.json` 中的 `team.syncBranch`
+- **冲突处理**: 目前仅提示用户手动 sync，完整合并机制规划中
 
 ### 3. 智能触发机制
 
@@ -93,39 +92,17 @@
 - **项目特征识别**: 自动识别项目类型、编程语言、框架、架构模式
 - **影响评估**: 评估代码变更对整体项目的影响范围
 
-#### 1.2 多策略文档生成
+#### 1.2 生成文档清单
 
 根据识别结果自动选择文档生成策略：
 
-**通用文档（所有项目类型）**:
-- `.memddc/docs/architecture.md` - 系统架构文档
-- `.memddc/docs/business.md` - 业务文档
-- `.memddc/docs/api.md` - API接口文档
-- `.memddc/docs/database.md` - 数据库设计文档
-- `.memddc/docs/development.md` - 开发指南
+**通用**: `architecture.md` / `business.md` / `api.md` / `database.md` / `development.md`
 
-**按编程语言**:
-| 语言 | 专属文档 |
-|------|---------|
-| Java | `.memddc/docs/java-classes.md`, `.memddc/docs/spring.md`, `.memddc/docs/mybatis.md` |
-| Python | `.memddc/docs/python-modules.md`, `.memddc/docs/django.md`, `.memddc/docs/flask.md` |
-| Go | `.memddc/docs/go-packages.md`, `.memddc/docs/gin.md` |
-| JavaScript/TypeScript | `.memddc/docs/js-modules.md`, `.memddc/docs/react.md`, `.memddc/docs/vue.md`, `.memddc/docs/node-api.md` |
-| Rust | `.memddc/docs/rust-crates.md` |
+**按语言**: `[java-classes.md / spring.md / vue.md 等]`
 
-**按架构模式**:
-| 架构 | 文档 |
-|------|-----|
-| DDD | `.memddc/docs/ddd-model.md`, `.memddc/docs/bounded-contexts.md` |
-| 微服务 | `.memddc/docs/services.md`, `.memddc/docs/service_mesh.md` |
-| MVC | `.memddc/docs/mvc-structure.md` |
-| MVVM | `.memddc/docs/mvvm-structure.md` |
+**按架构**: `[ddd-model.md / bounded-contexts.md 等]`
 
-**图表文档（使用Mermaid语法）**:
-- `.memddc/docs/diagrams/architecture.mmd` - 架构图
-- `.memddc/docs/diagrams/flow.mmd` - 流程图
-- `.memddc/docs/diagrams/sequence.mmd` - 时序图
-- `.memddc/docs/diagrams/er.mmd` - ER图
+**图表**: `diagrams/*.mmd`
 
 #### 1.3 DDD领域模型
 
@@ -254,7 +231,9 @@ project/
   },
   "compression": {
     "level": 7,
-    "excludePatterns": ["*.log", "*.tmp", "node_modules/**"]
+    "excludePatterns": ["*.log", "*.tmp", "node_modules/**"],
+    "contextLimit": 128000,
+    "autoCompressThreshold": 0.8
   }
 }
 ```
@@ -364,6 +343,7 @@ project/
    - 上下文注入
    - 增量更新
    - 冲突检测
+   - **容量检查**: 快照大小超过上下文限制80%时自动压缩
 
 6. **变更追踪器**
    - 代码变更检测
