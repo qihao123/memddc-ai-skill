@@ -311,7 +311,12 @@ project/
    - 生成适配项目的结构化文档
    - 构建DDD领域模型
 
-7. **整合写入快照**
+7. **关联映射构建**
+   - 扫描核心实体（Controller/Service/Mapper/Entity）
+   - 自动构建 entity→mapper→service→controller→view 的关联映射
+   - 写入 `mem-snapshot.json` 的 `relations` 字段
+
+8. **整合写入快照**
    - 将VCS分析、文件结构分析、业务上下文整合
    - 生成包含全部上下文信息的 `mem-snapshot.json`
 
