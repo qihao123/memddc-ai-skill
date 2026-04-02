@@ -9,6 +9,21 @@
 - **触发关键词**: MemDDC, 加载记忆约束修改, 按DDD契约迭代更新, memddc-init, memddc-update, memddc-sync
 - **适用场景**: 团队协作开发、复杂架构迭代、遗留系统持续重构、长期多人维护工程AI约束治理
 
+## 实战交互契约
+
+用户说"memddc-sync"或"MemDDC 更新"时：
+
+1. 执行 `git diff --name-only` 获取变更文件列表
+2. 将变更文件与 `mem-snapshot.json` 中的模块/实体/API 列表匹配
+3. 仅更新受影响的 Markdown 文档段落
+4. 更新 snapshot 中标记的字段，其余原样保留
+
+用户提出代码修改需求时：
+
+1. 优先加载 `mem-snapshot.json`
+2. 根据 snapshot 中的模块和关键类列表定位相关文件
+3. 先输出变更蓝图（影响文件清单），经用户确认后再执行修改
+
 ## v1.0.2 核心升级
 
 ### 1. 外部信息源整合
