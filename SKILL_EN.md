@@ -3,7 +3,7 @@
 ## Skill Information
 
 - **Skill Name**: MemDDC
-- **Version**: 1.0.1
+- **Version**: 1.0.2
 - **Author**: qihao123
 - **Description**: Team-oriented project documentation management and code iteration intelligent tool, providing automatic document generation, DDD model management, memory compression, code style unification, and intelligent triggering
 - **Trigger Keywords**: MemDDC, Load memory constraints for modification, Iterate and update according to DDD contract, memddc-init, memddc-update, memddc-sync
@@ -97,14 +97,32 @@ Automatically select document generation strategy based on recognition results:
 - **Domain Rules**: Business rules, invariants, constraint conditions
 - **Tactical Design**: Entity design, value object design, domain service design
 
-#### 1.4 Intelligent Memory Compression
+#### 1.4 Memory Snapshot (mem-snapshot.json)
 
-- **Document Compression Package**: `.memddc/snapshots/docs-compressed.zip` - Retain complete detailed documents
-- **Memory Snapshot**: `.memddc/snapshots/mem-snapshot.json` - Intelligently compress core information
-  - Program structure information: Directory structure, module division, dependency relationships
-  - File description information: File functions, core logic, key APIs
-  - Code style standards: Project code style rules
-  - Domain model summary: DDD boundaries, aggregates, entities
+Three-tier indexing structure for fast AI positioning and constraint injection:
+
+1. `metadata` — Project metadata
+   - Name, version, tech stack, code size statistics
+   - Quick project feature identification for AI
+
+2. `index` — Queryable file index
+   - `entities`: Core entities → file path, module, table name
+   - `controllers`: Controller → file path, basePath
+   - `services`: ServiceImpl → file path, interface, module
+   - `mappers`: Mapper → java path, xml path, table name
+   - `apis`: Frontend API wrapper → file path
+   - `views`: Frontend pages → file path
+   - `modules`: Module responsibility description
+   - `relations`: Entity association mapping (entity→mapper→service→controller→view)
+     - Example: `SysDept` → `{entity, mapper, service, controller, views[]}`
+     - AI modifies entities by ID lookup, no exploratory reading required
+
+3. `context` — Contextual constraints
+   - `vcsSummary`: Commit patterns and recent change themes
+   - `structureAnalysis`: Architecture patterns and potential issues
+   - `patterns`: High-frequency design patterns (treeBuild, pagination, permission, crudApi)
+   - `codeStyle`: Naming conventions, return types, annotation patterns
+   - `constraints`: Business constant mappings (status, types, data ranges)
 
 ### 2. Auto-loading Process (Executed Each Time Skill is Triggered)
 
@@ -115,10 +133,12 @@ Automatically select document generation strategy based on recognition results:
 
 ### 3. Iterative Modification Process
 
-- **Fast Memory Loading**: Automatically load latest compressed memory snapshot after triggering
-- **Change Awareness**: Understand the scope and content of this modification
-- **DDD Constraints**: Ensure modifications conform to domain models and business contracts
-- **Consistency Guarantee**: Automatically synchronize and update related documents after modification
+1. Fast Memory Loading: Read mem-snapshot.json
+2. Change Awareness: Understand scope and content of modification
+3. File Positioning: Query `index` layer (entities/services/mappers/views), precisely locate file paths
+4. DDD Constraints: Ensure modifications conform to domain models and business contracts
+5. Pattern Constraints: Reference `context.patterns` and `context.codeStyle`, maintain consistency with project conventions
+6. Consistency Guarantee: Auto-sync related documents after modification
 
 ### 4. Synchronization Compression Closed Loop
 
@@ -130,14 +150,19 @@ Automatically select document generation strategy based on recognition results:
 
 ## Directory Structure
 
-### v1.0.1 New Directory Structure
+### v1.0.2 New Directory Structure
 
 ```
 project/
 ├── .memddc/                          # MemDDC Unified Storage Directory (Team Shared)
 │   ├── config.json                   # Team-shared configuration
-│   ├── mem-snapshot.json             # Global memory snapshot
+│   ├── mem-snapshot.json             # Global memory snapshot (three-tier index)
+│   ├── vcs-log-raw.txt              # Raw VCS logs (recent 100)
+│   ├── vcs-log-analysis.md           # AI-organized VCS log analysis
+│   ├── file-tree-raw.txt            # Raw file tree
+│   ├── file-tree-analysis.md        # AI file structure analysis
 │   ├── docs/                        # Project documents
+│   │   ├── user-docs/              # User documents (AI analyzes business docs)
 │   │   ├── architecture.md          # Architecture document
 │   │   ├── business.md             # Business document
 │   │   ├── api.md                  # API interface document
@@ -217,9 +242,17 @@ project/
 3. Determine documents that need updating
 4. Construct change context
 
+### memddc-sync Incremental Flow
+
+1. Execute `git diff --name-only` to get changed files
+2. Classify: code files→update docs / user docs→update business context / config files→update tech stack
+3. AI outputs impact judgment: `{"affectedDocs": [...], "snapshotFields": [...]}`
+4. Precisely read and update affected content
+5. Write new snapshot, preserve unchanged fields
+
 ### Iterative Modification Phase
 
-1. Load relevant memory fragments
+1. Load relevant memory fragments (VCS history, file structure, business context)
 2. Inject context constraints
 3. Execute modifications according to DDD boundaries
 4. Real-time consistency verification
@@ -229,8 +262,13 @@ project/
 1. Compare code changes
 2. Update related documents
 3. Synchronize DDD model
-4. Re-compress memory
-5. Verify four-party consistency
+4. Re-analyze VCS logs and file structure (if changed)
+5. Update memory snapshot
+6. Verify five-party consistency
+7. Write to mem-snapshot.json with three-tier index structure:
+   - metadata: Project metadata
+   - index: Core class, interface, XML, Vue file path mappings
+   - context: VCS summary, structure analysis, patterns, code style, business constraints
 
 ## Technical Implementation
 
