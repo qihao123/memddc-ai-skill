@@ -86,6 +86,21 @@ project/
 └── [项目源码]
 ```
 
+## 在线体验
+
+想了解 v1.0.2 版本的完整初始化效果？查看示例项目 [example/RuoYi-Vue](example/RuoYi-Vue/.memddc/)：
+
+| 文件 | 说明 |
+|------|------|
+| [mem-snapshot.json](example/RuoYi-Vue/.memddc/mem-snapshot.json) | 完整的三级索引快照（25KB，含13个实体、15个Controller） |
+| [config.json](example/RuoYi-Vue/.memddc/config.json) | 团队共享配置 |
+| [ddd-model.md](example/RuoYi-Vue/.memddc/ddd-model.md) | DDD领域模型（5个限界上下文） |
+| [init-report-20260402.md](example/RuoYi-Vue/.memddc/docs/init-report-20260402.md) | 初始化报告（Token消耗分析、流程详解） |
+| [vcs-log-analysis.md](example/RuoYi-Vue/.memddc/vcs-log-analysis.md) | Git提交规律分析 |
+| [docs/](example/RuoYi-Vue/.memddc/docs/) | 自动生成的项目文档（含架构图、业务文档、API文档等） |
+
+> **示例项目说明**：RuoYi-Vue 是基于 SpringBoot+Vue 的前后端分离快速开发平台，包含 220 个 Java 文件、65 个 Vue 文件、22 个 XML Mapper，通过 MemDDC 初始化后生成完整项目知识库。
+
 ## 适用场景
 
 - **团队协作**: 统一文档，新成员快速上手
